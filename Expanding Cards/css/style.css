@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 20px;
+  font-family: "Michroma", sans-serif;
+}
+
+.cards {
+  display: flex;
+  width: 90vw;
+  height: 70vh;
+  gap: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.cards img {
+  width: 20%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.cards img:hover {
+  width: 60%;
+}
+
+.cards:hover img:not(:hover) {
+  width: 10%;
+  filter: brightness(0.7);
+}

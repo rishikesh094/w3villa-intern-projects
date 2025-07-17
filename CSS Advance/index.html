@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Position & Display </title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1>CSS Position & Display</h1>
+    </nav>
+
+    <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+
+    <section class="section tooltip-section">
+        <h2>Tooltip Example</h2>
+        <div class="tooltip-container">
+            <button class="tooltip-btn">Hover Me</button>
+            <div class="tooltip">I am a tooltip</div>
+        </div>
+    </section>
+
+    <section class="section modal-section">
+        <h2>Modal Popup Example</h2>
+        <button class="open-modal">Open Modal</button>
+        <div class="modal-overlay">
+            <div class="modal">
+                <p>This is a Modal Box</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section image-caption-section">
+        <h2>Image Caption Overlay</h2>
+        <div class="image-container">
+            <img src="https://i.pinimg.com/736x/3e/87/1e/3e871eece5ee6de134b998ddf8131b64.jpg" alt="Sample Image" />
+            <div class="caption">This is a Caption</div>
+        </div>
+    </section>
+
+
+    <section class="section display-demo">
+        <h2>Display: Block, Inline, Inline-Block</h2>
+        <div class="block-box">Block Element</div>
+        <span class="inline-box">Inline Element</span>
+        <div class="inline-block-box">Inline-Block Element</div>
+    </section>
+
+    <section class="section flex-demo">
+        <h2>Display: Flex Example</h2>
+        <div class="flex-container">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+        </div>
+    </section>
+
+\    <section class="section grid-demo">
+        <h2>Display: Grid Example</h2>
+        <div class="grid-container">
+            <div class="grid-item">A</div>
+            <div class="grid-item">B</div>
+            <div class="grid-item">C</div>
+        </div>
+    </section>
+
+    <script>
+        const openModal = document.querySelector(".open-modal");
+        const closeModal = document.querySelector(".close-modal");
+        const modalOverlay = document.querySelector(".modal-overlay");
+
+        openModal.addEventListener("click", () => {
+            modalOverlay.style.display = "flex";
+        });
+
+        closeModal.addEventListener("click", () => {
+            modalOverlay.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

@@ -50,17 +50,17 @@
                 <!-- Menu -->
                 <ul id="menu"
                     class="hidden lg:flex flex-col lg:flex-row gap-4 lg:gap-10 font-semibold text-gray-500 items-center mt-2 lg:mt-0">
-                    <li class="text-[#5bc1ac]"><a href="">Home</a></li>
-                    <li class="hover:text-[#5bc1ac]"><a href="">About</a></li>
-                    <li class="hover:text-[#5bc1ac]"><a href="">Causes</a></li>
-                    <li class="hover:text-[#5bc1ac]"><a href="">Volunteer</a></li>
-                    <li class="hover:text-[#5bc1ac]"><a href="">News</a></li>
-                    <li class="hover:text-[#5bc1ac]"><a href="">Contact</a></li>
+                    <li><a href="#home" class="hover:text-[#5bc1ac]">Home</a></li>
+                    <li><a href="#about" class="hover:text-[#5bc1ac]">About</a></li>
+                    <li><a href="#causes" class="hover:text-[#5bc1ac]">Causes</a></li>
+                    <li><a href="#volunteer" class="hover:text-[#5bc1ac]">Volunteer</a></li>
+                    <li><a href="#contact" class="hover:text-[#5bc1ac]">Contact</a></li>
                     <li
                         class="hover:text-white hover:bg-[#5bc1ac] border-2 px-4 py-1 rounded-full transition duration-300">
-                        <a href="">Donate</a>
+                        <a href="#donate">Donate</a>
                     </li>
                 </ul>
+
 
 
             </div>
@@ -136,7 +136,6 @@
                 </div>
             </div>
         </section>
-
 
         <section class="bg-gray-50">
             <div class="container mx-auto flex justify-center items-center flex-col px-4 py-20">
@@ -222,7 +221,7 @@
             </div>
         </section>
 
-        <section class="py-20">
+        <section class="py-[100px] ">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col lg:flex-row justify-center items-stretch gap-10">
 
@@ -256,9 +255,335 @@
             </div>
         </section>
 
+        <section class="bg-[#f0f8ff] py-[100px] relative overflow-hidden" >
+            <div class="container mx-auto relative after:content-[''] after:bg-[#5bc1ac] after:absolute after:w-[200px] after:h-[200px] after:top-[-200px] after:left-[-80px] after:rounded-full 
+                before:content-[''] before:bg-transparent before:absolute before:w-[150px] before:h-[150px] before:top-45 before:left-120 before:rounded-full before:border-20 before:border-gray-500
+                ">
+                <div class="flex flex-col md:flex-row justify-around items-center w-full md:w-[70%] mx-auto gap-6">
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p class="text-5xl font-bold text-gray-500 leading-tight">
+                            Make an impact.<br />Save lives.
+                        </p>
+                    </div>
+                    <div class="flex gap-4 items-center justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 text-lg">Make a donation</a>
+                        <button
+                            class="rounded-full text-white text-lg bg-gray-500 py-4 px-8 hover:bg-[#5bc1ac] transition-all duration-300">
+                            Become a volunteer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-[100px]" id="causes" >
+            <div class="container mx-auto flex flex-col justify-center items-center px-4">
+                <div class="mb-12 text-center">
+                    <h2 class="text-5xl text-gray-500 font-bold">Our Causes</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <img src="https://templatemo.com/templates/templatemo_581_kind_heart_charity/images/causes/group-african-kids-paying-attention-class.jpg"
+                            alt="Children Education" class="w-full h-64 object-cover">
+                        <div class="p-6 space-y-4">
+                            <h5 class="text-2xl font-semibold text-[#5bc1ac]">Children Education</h5>
+                            <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+                                eius porro nisi!</p>
+                            <div class="w-full h-1 bg-gray-300 rounded-2xl">
+                                <div class="w-[80%] h-1 bg-gray-500 rounded-2xl"></div>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <p><span class="font-bold">Raised:</span> $18,500</p>
+                                <p><span class="font-bold">Goal:</span> $32,000</p>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="inline-block w-full mt-4 px-6 py-3 bg-gray-600 text-center text-white  hover:bg-[#5bc1ac] transition-colors duration-300">
+                            Donate Now
+                        </a>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <img src="https://templatemo.com/templates/templatemo_581_kind_heart_charity/images/causes/poor-child-landfill-looks-forward-with-hope.jpg"
+                            alt="Poverty Development" class="w-full h-64 object-cover">
+                        <div class="p-6 space-y-4">
+                            <h5 class="text-2xl font-semibold text-[#5bc1ac]">Poverty Development</h5>
+                            <p class="text-gray-500">Sed leo nisl, posuere at molestie ac, suscipit auctor mauris. Etiam
+                                quis metus tempor</p>
+                            <div class="w-full h-1 bg-gray-300 rounded-2xl">
+                                <div class="w-[60%] h-1 bg-gray-500 rounded-2xl"></div>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <p><span class="font-bold">Raised:</span> $32,500</p>
+                                <p><span class="font-bold">Goal:</span> $70,000</p>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="inline-block w-full mt-4 px-6 py-3 bg-gray-600 text-center text-white  hover:bg-[#5bc1ac] transition-colors duration-300">
+                            Donate Now
+                        </a>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <img src="https://templatemo.com/templates/templatemo_581_kind_heart_charity/images/causes/african-woman-pouring-water-recipient-outdoors.jpg"
+                            alt="Supply drinking water
+" class="w-full h-64 object-cover">
+                        <div class="p-6 space-y-4">
+                            <h5 class="text-2xl font-semibold text-[#5bc1ac]">Supply drinking water
+                            </h5>
+                            <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+                                eius porro nisi!</p>
+                            <div class="w-full h-1 bg-gray-300 rounded-2xl">
+                                <div class="w-[100%] h-1 bg-gray-500 rounded-2xl"></div>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <p><span class="font-bold">Raised:</span> $50,500</p>
+                                <p><span class="font-bold">Goal:</span> $90,000</p>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="inline-block w-full mt-4 px-6 py-3 bg-gray-600 text-center text-white  hover:bg-[#5bc1ac] transition-colors duration-300">
+                            Donate Now
+                        </a>
+                    </div>
 
 
+
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-500 py-[100px] relative overflow-hidden" id="volunteer">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row justify-center items-center relative gap-12">
+                    <div
+                        class="after:content-[''] after:bg-[#5bc1ac] after:absolute after:w-[300px] after:h-[300px]  after:bottom-[-200px] after:right-[-100px] after:rounded-full">
+                    </div>
+
+                    <div class="flex flex-col gap-6 relative">
+                        <h3 class="text-white text-4xl font-bold text-center">Volunteer</h3>
+                        <form class="p-8 rounded-3xl bg-white space-y-6 shadow-lg">
+                            <h4 class="text-2xl text-black font-bold">
+                                Become a volunteer today
+                            </h4>
+
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <input type="text" placeholder="Name"
+                                    class="flex-1 border-0 outline-0 p-3 rounded-lg bg-[#f0f8ff]">
+                                <input type="email" placeholder="Email"
+                                    class="flex-1 border-0 outline-0 p-3 rounded-lg bg-[#f0f8ff]">
+                            </div>
+
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <input type="text" placeholder="Subject"
+                                    class="flex-1 border-0 outline-0 p-3 rounded-lg bg-[#f0f8ff]">
+                                <label for="cvUpload"
+                                    class="flex-1 border-0 outline-0 p-3 rounded-lg bg-[#f0f8ff] text-gray-500 cursor-pointer">
+                                    Upload your CV
+                                </label>
+                                <input type="file" id="cvUpload" class="hidden">
+
+                            </div>
+
+                            <!-- Comment -->
+                            <textarea name="comment" id="comment" placeholder="Comment (Optional)" rows="5"
+                                class="border-0 outline-0 p-3 rounded-lg bg-[#f0f8ff] w-full"></textarea>
+
+                            <!-- Submit Button -->
+                            <button
+                                class="bg-gray-500 w-full p-4 rounded-full text-white text-lg hover:bg-[#5bc1ac] cursor-pointer transition-all duration-300">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Volunteer Image & About -->
+                    <div class="flex flex-col gap-6 justify-center items-center relative">
+                        <img src="https://templatemo.com/templates/templatemo_581_kind_heart_charity/images/smiling-casual-woman-dressed-volunteer-t-shirt-with-badge.jpg"
+                            alt="volunteer-img" class="w-80 h-80 object-cover rounded-full shadow-lg">
+                        <div class="lg:w-[60%] text-center">
+                            <h5 class="text-3xl text-white font-bold">About Volunteering</h5>
+                            <p class="text-white mt-4">
+                                Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito Professional
+                                charity theme based.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-[#f0f4f8] py-20 relative overflow-hidden">
+            <div class="container mx-auto" id="contact">
+                <div class="absolute top-[-100px] left-[-50px] w-58 h-58 bg-[#5bc1ac] rounded-full"></div>
+                <div class="absolute bottom-[-100px] right-[-50px] w-64 h-64 bg-gray-400 rounded-full"></div>
+
+                <div class="container mx-auto text-center relative">
+                    <h2 class="text-5xl font-bold text-gray-500 mb-8">Happy Customers</h2>
+
+                    <div class="max-w-2xl mx-auto text-gray-600 text-lg italic">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#5bc1ac" class="w-8 h-8 inline mb-2"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M7.17 6A5.994 5.994 0 001 12v8h8v-8H5.13c.46-2.28 1.58-3.93 3.25-5H7.17zm10 0a5.994 5.994 0 00-6.17 6v8h8v-8h-3.87c.46-2.28 1.58-3.93 3.25-5h-1.21z" />
+                        </svg>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kengan omeg kohm tokito charity theme.
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#5bc1ac" class="w-8 h-8 inline rotate-180 mb-2"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M7.17 6A5.994 5.994 0 001 12v8h8v-8H5.13c.46-2.28 1.58-3.93 3.25-5H7.17zm10 0a5.994 5.994 0 00-6.17 6v8h8v-8h-3.87c.46-2.28 1.58-3.93 3.25-5h-1.21z" />
+                        </svg>
+                    </div>
+
+                    <div class="inline-block bg-[#5bc1ac] text-white px-4 py-2 rounded-full mt-6 shadow-md">
+                        <span class="font-bold">Jane</span>, Advisor
+                    </div>
+
+                    <div class="flex justify-center gap-4 mt-8">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User 1"
+                            class="w-14 h-14 rounded-full border-4 border-[#5bc1ac]">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User 2"
+                            class="w-14 h-14 rounded-full border-4 border-gray-300">
+                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User 3"
+                            class="w-14 h-14 rounded-full border-4 border-gray-300">
+                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="User 4"
+                            class="w-14 h-14 rounded-full border-4 border-gray-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <div class="bg-white p-8 rounded-xl">
+                        <h2 class="text-5xl font-bold text-gray-500 mb-6">Get in touch</h2>
+
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://templatemo.com/templates/templatemo_581_kind_heart_charity/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg"
+                                alt="Clara Barton" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h4 class="text-gray-500">Clara Barton</h4>
+                                <p class="text-md text-gray-500 font-bold">HR & Office Manager</p>
+                            </div>
+                        </div>
+                        <hr class="w-full text-gray-300 mb-8">
+
+                        <div class="text-gray-600 space-y-4 mb-6">
+                            <h5 class="text-2xl font-semibold text-[#5bc1ac]">Contact Infomation</h5>
+                            <p>
+                                <span class="font-semibold text-[#5bc1ac]"><i
+                                        class="fa-solid fa-location-dot"></i></span>
+                                Akershusstranda 20, 0150 Oslo, Norway
+                            </p>
+                            <p>
+                                <span class="font-semibold text-[#5bc1ac]"><i class="fa-solid fa-phone"></i></span>
+                                120-240-9600
+                            </p>
+                            <p>
+                                <span class="font-semibold text-[#5bc1ac]"><i class="fa-regular fa-envelope"></i></span>
+                                donate@charity.org
+                            </p>
+                        </div>
+
+                        <button
+                            class="px-6 py-3 bg-gray-700 text-white rounded-full hover:bg-[#5bc1ac] transition-all duration-300">
+                            Get Direction
+                        </button>
+                    </div>
+
+                    <div class="bg-[#f0f8ff] p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold text-gray-700 mb-2">Contact form</h2>
+                        <p class="text-gray-600 mb-6">
+                            Or, you can just send an email: <a href="mailto:info@charity.org"
+                                class="text-[#5bc1ac]">info@charity.org</a>
+                        </p>
+
+                        <form action="#" class="space-y-4">
+                            <!-- Name Inputs -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name"
+                                    class="w-full p-3 rounded-lg border-0 outline-none bg-white">
+                                <input type="text" placeholder="Last Name"
+                                    class="w-full p-3 rounded-lg border-0 outline-none bg-white">
+                            </div>
+
+                            <!-- Email -->
+                            <input type="email" placeholder="Email Address"
+                                class="w-full p-3 rounded-lg border-0 outline-none bg-white">
+
+                            <!-- Message -->
+                            <textarea rows="5" placeholder="What can we help you with?"
+                                class="w-full p-3 rounded-lg border-0 outline-none bg-white"></textarea>
+
+                            <!-- Send Button -->
+                            <button type="submit"
+                                class="w-full py-3 bg-gray-700 text-white rounded-full hover:bg-[#5bc1ac] transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="bg-gray-700 text-white">
+        <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div>
+                <div class="flex items-center space-x-2">
+                    <div class="flex justify-center items-center">
+                        <img src="https://templatemo.com/templates/templatemo_581_kind_heart_charity/images/logo.png"
+                            alt="logo" class="w-[80px] h-auto">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-[#5bc1ac] text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-[#5bc1ac] transition">Our Story</a></li>
+                    <li><a href="#" class="hover:text-[#5bc1ac] transition">Newsroom</a></li>
+                    <li><a href="#" class="hover:text-[#5bc1ac] transition">Causes</a></li>
+                    <li><a href="#" class="hover:text-[#5bc1ac] transition">Become a volunteer</a></li>
+                    <li><a href="#" class="hover:text-[#5bc1ac] transition">Partner with us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[#5bc1ac] text-lg font-semibold mb-4">Contact Information</h4>
+                <ul class="space-y-3">
+                    <li><i class="fa-solid fa-phone"></i> 120-240-9600</li>
+                    <li><i class="fa-regular fa-envelope"></i> donate@charity.org</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Akershusstranda 20, 0150 Oslo, Norway</li>
+                </ul>
+                <button class="mt-4 px-5 py-2 bg-gray-500 rounded-full hover:bg-[#5bc1ac] transition">
+                    Get Direction
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="bg-gray-600 py-4">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+
+                <!-- Copyright -->
+                <p class="text-sm text-gray-300">
+                    © 2025 Kind Heart Charity Org.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="flex space-x-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-[#5bc1ac] transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-[#5bc1ac] transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-[#5bc1ac] transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-[#5bc1ac] transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-[#5bc1ac] transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>

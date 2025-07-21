@@ -1,7 +1,11 @@
  async function fetchData(){
-    const res = await fetch("https://dummyjson.com/products")
-    const data = await res.json();
-    console.log(data)
+    try {
+        const res = await fetch("https://dummyjson.com/products")
+        const data = await res.json();
+        console.log(data)
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 fetchData();

@@ -1,0 +1,4 @@
+Hello, this is the first line.
+This is just a dummy text file for testing.
+You can add as many lines as you want.
+This is the last line of this file.

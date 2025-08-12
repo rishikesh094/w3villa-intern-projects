@@ -9,13 +9,13 @@ function CrudUI() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({ name: "", desc: "", qty: "" });
 
-  // Fetch items from backend
+  
   useEffect(() => {
     axios
       .get(`${url}/items`)
       .then((res) => setItems(res.data.items))
       .catch((err) => console.error("Fetch error:", err));
-  }, []); // ✅ fixed infinite loop
+  }); 
 
   // Safe filter
   const filtered = items.filter((it) => {

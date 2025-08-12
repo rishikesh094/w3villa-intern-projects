@@ -4,11 +4,11 @@ import products from "./products.json"
 function App() {
   return (
     <div>
-      
-      <Cart/>
+
+      <Cart />
       <div className='flex justify-center items-center flex-wrap'>
         {products.map((product) => {
-         return <Product key={product.id} {...product} />
+          return <Product key={product.id} {...product} />
         })}
       </div>
 

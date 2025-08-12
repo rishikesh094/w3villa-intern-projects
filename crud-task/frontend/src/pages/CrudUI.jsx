@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {url} from "../../services/url";
+import { url } from "../../services/url";
 
 function CrudUI() {
   const [items, setItems] = useState([]);
@@ -15,9 +15,9 @@ function CrudUI() {
       .get(`${url}/items`)
       .then((res) => setItems(res.data.items))
       .catch((err) => console.error("Fetch error:", err));
-  });
+  }, []); // ✅ fixed infinite loop
 
-  // Safe filter to avoid "toLowerCase of undefined"
+  // Safe filter
   const filtered = items.filter((it) => {
     const name = it?.name?.toLowerCase() || "";
     const desc = it?.desc?.toLowerCase() || "";
@@ -46,9 +46,8 @@ function CrudUI() {
   async function handleDelete(id) {
     if (!window.confirm("Are you sure you want to delete this item?")) return;
     try {
-     
       await axios.delete(`${url}/items/${id}`);
-      setItems((prev) => prev.filter((p) => p.id !== id));
+      setItems((prev) => prev.filter((p) => p._id !== id));
     } catch (err) {
       console.error("Delete error:", err);
     }
@@ -60,12 +59,9 @@ function CrudUI() {
       const payload = { ...form, qty: Number(form.qty) };
 
       if (editing) {
-        const res = await axios.put(
-          `${url}/items/${editing._id}`,
-          payload
-        );
+        const res = await axios.put(`${url}/items/${editing._id}`, payload);
         setItems((prev) =>
-          prev.map((p) => (p.id === editing.id ? res.data : p))
+          prev.map((p) => (p._id === editing._id ? res.data : p))
         );
       } else {
         const res = await axios.post(`${url}/add`, payload);
@@ -82,23 +78,23 @@ function CrudUI() {
   }, [isModalOpen]);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <header className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-semibold text-gray-800">
+        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+          <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">
             Inventory — CRUD UI
           </h1>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search name or description..."
-              className="px-3 py-2 border rounded-md shadow-sm bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+              className="flex-1 px-3 py-2 border rounded-md shadow-sm bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
             />
             <button
               onClick={openCreate}
-              className="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700 text-sm"
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700 text-sm"
             >
               + Add Item
             </button>
@@ -109,21 +105,13 @@ function CrudUI() {
         <main>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
+              <table className="min-w-full divide-y divide-gray-200 text-sm sm:text-base">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">
-                      Name
-                    </th>
-                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">
-                      Description
-                    </th>
-                    <th className="px-4 py-2 text-center text-xs font-medium text-gray-500">
-                      Quantity
-                    </th>
-                    <th className="px-4 py-2 text-right text-xs font-medium text-gray-500">
-                      Actions
-                    </th>
+                    <th className="px-4 py-2 text-left font-medium text-gray-500">Name</th>
+                    <th className="px-4 py-2 text-left font-medium text-gray-500">Description</th>
+                    <th className="px-4 py-2 text-center font-medium text-gray-500">Quantity</th>
+                    <th className="px-4 py-2 text-right font-medium text-gray-500">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
@@ -134,26 +122,19 @@ function CrudUI() {
                       </td>
                     </tr>
                   ) : (
-
                     filtered.map((it, index) => (
                       <tr key={index} className="hover:bg-gray-50">
                         <td className="px-4 py-3">
-                          <div className="text-sm font-medium text-gray-800">
-                            {it.name}
-                          </div>
-                          <div className="text-xs text-gray-400">
-                            ID: {index+1}
-                          </div>
+                          <div className="font-medium text-gray-800">{it.name}</div>
+                          <div className="text-xs text-gray-400">ID: {index + 1}</div>
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-600">
-                          {it.desc}
-                        </td>
+                        <td className="px-4 py-3 text-gray-600">{it.desc}</td>
                         <td className="px-4 py-3 text-center">
                           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700">
                             {it.qty}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-right text-sm flex items-center justify-end gap-2">
+                        <td className="px-4 py-3 text-right flex flex-wrap justify-end gap-2">
                           <button
                             onClick={() => openEdit(it)}
                             className="px-3 py-1.5 border rounded text-indigo-600 hover:bg-indigo-50"
@@ -169,7 +150,6 @@ function CrudUI() {
                         </td>
                       </tr>
                     ))
-
                   )}
                 </tbody>
               </table>
@@ -180,7 +160,7 @@ function CrudUI() {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-40 flex items-center justify-center p-2 sm:p-4">
           <div
             className="absolute inset-0 bg-black opacity-30"
             onClick={() => setIsModalOpen(false)}
@@ -188,7 +168,7 @@ function CrudUI() {
 
           <form
             onSubmit={handleSubmit}
-            className="relative z-50 w-full max-w-lg bg-white rounded-lg shadow-lg p-6"
+            className="relative z-50 w-full max-w-lg bg-white rounded-lg shadow-lg p-4 sm:p-6"
           >
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-gray-800">
@@ -208,9 +188,7 @@ function CrudUI() {
                 <div className="text-sm text-gray-600 mb-1">Name</div>
                 <input
                   value={form.name}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, name: e.target.value }))
-                  }
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                   className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300"
                 />
               </label>
@@ -219,9 +197,7 @@ function CrudUI() {
                 <div className="text-sm text-gray-600 mb-1">Description</div>
                 <input
                   value={form.desc}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, desc: e.target.value }))
-                  }
+                  onChange={(e) => setForm((f) => ({ ...f, desc: e.target.value }))}
                   className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300"
                 />
               </label>
@@ -232,15 +208,13 @@ function CrudUI() {
                   type="number"
                   min="0"
                   value={form.qty}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, qty: e.target.value }))
-                  }
-                  className="w-40 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                  onChange={(e) => setForm((f) => ({ ...f, qty: e.target.value }))}
+                  className="w-full sm:w-40 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300"
                 />
               </label>
             </div>
 
-            <div className="mt-5 flex items-center justify-end gap-3">
+            <div className="mt-5 flex flex-col sm:flex-row sm:justify-end gap-3">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}

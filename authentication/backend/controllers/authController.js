@@ -2,11 +2,14 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+// Register user
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
+  
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ msg: "User already exists" });
+    console.log(name,email,password);
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ name, email, password: hashedPassword });
@@ -18,8 +21,10 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+// Login user
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
+  
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ msg: "Invalid credentials" });
@@ -31,8 +36,8 @@ exports.loginUser = async (req, res) => {
       expiresIn: "1h",
     });
 
-   res.cookie("token", token, {
-      httpOnly: true, 
+    res.cookie("token", token, {
+      httpOnly: true,
       sameSite: "strict"
     });
 
@@ -42,16 +47,33 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+// Get user by token (simple check)
 exports.getUser = async (req, res) => {
   const token = req.cookies.token;
-  // console.log(token);
-  
+
   if (!token) return res.status(401).json({ error: "Unauthorized" });
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("hiihih")
     res.json({ message: "Access granted", userId: decoded.id });
   } catch (err) {
     res.status(401).json({ error: "Invalid token" });
   }
-}
+};
+
+
+exports.getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.userId).select("-password");
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.json({ user }); 
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// ✅ Logout user
+exports.logout = (req, res) => {
+  res.clearCookie("token", { httpOnly: true, sameSite: "strict" });
+  res.json({ message: "Logged out successfully" });
+};

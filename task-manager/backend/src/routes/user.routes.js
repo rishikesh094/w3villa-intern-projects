@@ -20,6 +20,7 @@ router.use(requireAdmin);
 
 // User management routes (admin only)
 router.get("/", getAllUsers);
+router.post("/", createUser);
 router.get("/stats", getUserStats);
 router.get("/:id", getUserById);
 router.put("/:id", updateUser);

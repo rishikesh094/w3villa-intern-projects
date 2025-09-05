@@ -3,7 +3,6 @@ import sequelize from "./db/db.js";
 import User from "./models/user.model.js";
 import Task from "./models/task.model.js";
 
-import cors from "cors";
 import cookieParser from "cookie-parser";
 
 const PORT = process.env.PORT || 4040;
@@ -16,11 +15,6 @@ Task.belongsTo(User, { foreignKey: 'assignedTo', as: 'assignee' });
 
 
 app.use(cookieParser());
-// CORS configuration
-app.use(cors({
-  origin: "https://task-manager094.netlify.app", 
-  credentials: true
-}));
 
 async function startServer() {
   try {

@@ -53,8 +53,8 @@ const generateNewAccessToken = (user, res, req, next) => {
   // Set new access token cookie
   res.cookie("accessToken", newAccessToken, {
     httpOnly: true,
-    secure: false, // Set to true in production with HTTPS
-    sameSite: "lax",
+    secure: true, 
+    sameSite: "none",
     maxAge: 5 * 60 * 1000  // 5 minutes in milliseconds
   });
 

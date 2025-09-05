@@ -3,8 +3,6 @@ import sequelize from "./db/db.js";
 import User from "./models/user.model.js";
 import Task from "./models/task.model.js";
 
-import cookieParser from "cookie-parser";
-
 const PORT = process.env.PORT || 4040;
 
 // Set up model associations directly
@@ -13,8 +11,6 @@ User.hasMany(Task, { foreignKey: 'assignedTo', as: 'assignedTasks' });
 Task.belongsTo(User, { foreignKey: 'createdBy', as: 'creator' });
 Task.belongsTo(User, { foreignKey: 'assignedTo', as: 'assignee' });
 
-
-app.use(cookieParser());
 
 async function startServer() {
   try {

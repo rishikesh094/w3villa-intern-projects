@@ -1,7 +1,5 @@
 import express from "express";
-import cors from "cors";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.route.js";
 import taskRoutes from "./routes/task.routes.js";
@@ -11,16 +9,9 @@ dotenv.config();
 
 const app = express();
 
-// CORS configuration
-app.use(cors({
-  origin: "https://task-manager094.netlify.app", 
-  credentials: true
-}));
-
 // Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 
 // API routes
